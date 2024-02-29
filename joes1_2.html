@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<body>
+<h1>With associative array </h1>
+<script>
+    items = []
+    items["hotdogs"] = 4
+    items["fries"] = 3.50
+    items["soda"] = 1.50
+    items["sauerkraut"] = 1
+
+    for (key in items) {
+        document.write(key + " - $" + items[key] + "<br>" )
+    }
+</script>
+<h2>With using JSON</h2>
+<script>
+    items = {
+        "hotdogs" : 4,
+        "fries" : 3.50,
+        "soda" : 1.50,
+        "sauerkraut" : 1
+    }
+    strItems = JSON.stringify(items);
+    document.write(strItems);
+    
+</script>
+<h3>With using a function Object</h3>
+<script>
+    function Food (foodItems, prices){
+        this.foodItems = foodItems;
+        this.prices = prices;
+        this.show = function () {return this.foodItems + ": $" + this.prices;}
+    }
+
+    foods = [new Food("hotdogs", 4), new Food("fries", 3.50), new Food("soda", 1.50), new Food("sauerkraut", 1)]
+    menu=foods.map(i=>i.show()).join("<br>");
+    document.write(menu);
+    
+
+</script>
+</body>
+</head>
+</html>
